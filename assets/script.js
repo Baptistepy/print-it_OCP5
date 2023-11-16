@@ -19,9 +19,9 @@ const slides = [
 	}
 ]
 
-let leftArrow = document.querySelector(".arrow_left");
-let rightArrow = document.querySelector(".arrow_right");
-let dots = document.querySelectorAll(".dot");
+const leftArrow = document.querySelector(".arrow_left");
+const rightArrow = document.querySelector(".arrow_right");
+const dots = document.querySelectorAll(".dot");
 
 leftArrow.addEventListener("click", () => {
 	console.log("Left arrow clicked!");
@@ -48,3 +48,5 @@ slides.forEach((slide, index) => {
 	
 	dotsContainer.appendChild(dot);
 });
+
+
