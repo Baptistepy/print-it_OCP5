@@ -31,3 +31,20 @@ rightArrow.addEventListener("click", () => {
 	console.log("Right arrow clicked!");
 })
 
+const dotsContainer = document.querySelector(".dots");
+
+
+slides.forEach((slide, index) => {
+	const dot = document.createElement("span");
+	dot.classList.add("dot");
+	
+	if (index === 0) {
+		dot.classList.add("dot_selected");
+	}
+	
+	dot.addEventListener("click", () => {
+		console.log(`Go to slide ${index + 1}`);
+	});
+	
+	dotsContainer.appendChild(dot);
+});
