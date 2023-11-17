@@ -1,5 +1,7 @@
 "use strict";
 
+// ******************************* CONSTANTES *******************************
+
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -19,34 +21,61 @@ const slides = [
 	}
 ]
 
-const leftArrow = document.querySelector(".arrow_left");
-const rightArrow = document.querySelector(".arrow_right");
-const dots = document.querySelectorAll(".dot");
-
-leftArrow.addEventListener("click", () => {
-	console.log("Left arrow clicked!");
-})
-
-rightArrow.addEventListener("click", () => {
-	console.log("Right arrow clicked!");
-})
-
+const leftArrow     = document.querySelector(".arrow_left");
+const rightArrow    = document.querySelector(".arrow_right");
 const dotsContainer = document.querySelector(".dots");
 
 
-slides.forEach((slide, index) => {
-	const dot = document.createElement("span");
-	dot.classList.add("dot");
-	
-	if (index === 0) {
-		dot.classList.add("dot_selected");
-	}
-	
-	dot.addEventListener("click", () => {
-		console.log(`Go to slide ${index + 1}`);
-	});
-	
-	dotsContainer.appendChild(dot);
-});
+
+// ******************************* VARIABLES *******************************
+
+let index = 0;
+
+// ******************************* FONCTIONS *******************************
+
+function goLeft() {
+  index      = (index + slides.length - 1) % slides.length;
+  console.log(index)
+}
+
+function goRight() {
+  index      = (index + 1 ) % slides.length;
+  console.log(index)
+}
+
+function goToSlide(index) {
+  console.log(`Go to slide ${index + 1}`);
+}
+
+function setArrows() {
+  leftArrow.addEventListener("click", goLeft);
+  rightArrow.addEventListener("click", goRight);
+}
+
+function setDots() {
+  slides.forEach((slide, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    
+    if (index === 0) {
+      dot.classList.add("dot_selected");
+    }
+    
+    dot.addEventListener("click", () => {
+      goToSlide(index);
+    });
+    
+    dotsContainer.appendChild(dot);
+  });
+}
+
+// ******************************* CODE PRINCIPAL *******************************
+
+setArrows();
+setDots();
+
+const dots = document.querySelectorAll(".dot");
+
+
 
 
