@@ -39,14 +39,12 @@ let allDots;
 
 function goLeft() {
   index      = (index + slides.length - 1) % slides.length;
-  console.log(index)
   updateImage();
   updateDot();
 }
 
 function goRight() {
   index      = (index + 1 ) % slides.length;
-  console.log(index)
   updateImage();
   updateDot();
 }
@@ -67,9 +65,6 @@ function updateImage() {
   imageElement.src = "./assets/images/slideshow/" + image;
 }
 
-function goToSlide(index) {
-  console.log(`Go to slide ${index + 1}`);
-}
 
 function setArrows() {
   leftArrow.addEventListener("click", goLeft);
@@ -84,11 +79,6 @@ function setDots() {
     if (index === 0) {
       dot.classList.add("dot_selected");
     }
-    
-    dot.addEventListener("click", () => {
-      goToSlide(index);
-    });
-    
     dotsContainer.appendChild(dot);
   });
 }
