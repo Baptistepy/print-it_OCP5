@@ -71,15 +71,6 @@ function setArrows() {
   rightArrow.addEventListener("click", goRight);
 }
 
-leftArrow.addEventListener("click", function() {
-  console.log("Left arrow clicked");
-});
-
-
-rightArrow.addEventListener("click", function() {
-  console.log("Right arrow clicked");
-});
-
 function setDots() {
   slides.forEach((slide, index) => {
     const dot = document.createElement("span");
@@ -97,6 +88,14 @@ function setDots() {
 setArrows();
 setDots();
 
+leftArrow.addEventListener("click", function() {
+  console.log("Left arrow clicked");
+});
+
+
+rightArrow.addEventListener("click", function() {
+  console.log("Right arrow clicked");
+});
 
 
 
